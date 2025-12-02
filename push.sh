@@ -46,14 +46,15 @@ if [ -z "$last_tag" ]; then
         exit 0
     fi
 elif [ "$last_tag" == "$version" ]; then
-    echo "Version $version is already the latest tag."
-    read -p "${RED}Do you want to commit and push without a new tag? (y/n): ${NC}" answer
+    echo -e "${RED}Version $version is already the latest tag."
+    read -p "Do you want to commit and push without a new tag? (y/n): " answer
+    echo -e "${NC}"
     if [ "$answer" != "y" ]; then
         echo "Nothing to do. Exiting."
         exit 0
     fi
 else
-    echo "New version detected: $version (last tag: $last_tag)."
+    echo -e "${YELLOW}New version detected:${NC} $version ${YELLOW}(last tag:${NC} $last_tag)."
 fi
 
 # Ask for commit message

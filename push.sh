@@ -15,9 +15,9 @@ fi
 echo "Build finished successfully."
 
 # Read version from platformio.ini
-major=$(grep '^major' controler_root/platformio.ini | awk -F '=' '{print $2}' | xargs)
-minor=$(grep '^minor' controler_root/platformio.ini | awk -F '=' '{print $2}' | xargs)
-patch=$(grep '^patch' controler_root/platformio.ini | awk -F '=' '{print $2}' | xargs)
+major=$(grep '^major' platformio.ini | awk -F '=' '{print $2}' | xargs)
+minor=$(grep '^minor' platformio.ini | awk -F '=' '{print $2}' | xargs)
+patch=$(grep '^patch' platformio.ini | awk -F '=' '{print $2}' | xargs)
 version="v${major}.${minor}.${patch}"
 
 # Get current branch

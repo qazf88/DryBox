@@ -38,6 +38,7 @@
 #define FAN_FREQ 1000
 #define FAN_RES 10
 
+
 enum menuValueType
 {
   _inc_dec,

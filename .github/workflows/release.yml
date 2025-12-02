@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-      - 'v*'  # тригериться тільки на теги, що починаються з v, напр. v0.1.0
+      - 'v*'
 
 jobs:
   release:
@@ -19,12 +19,12 @@ jobs:
     - name: Build firmware
       run: pio run
 
-    - name: Upload firmware from /firmware/ folder
+    - name: Upload firmware from .pio/build/esp32dev folder
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
         body: "Automatic firmware release for ${{ github.ref_name }}"
-        files: firmware/*
+        files: firmware.bin
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
